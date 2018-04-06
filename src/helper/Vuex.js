@@ -1,10 +1,31 @@
 import Vuex from 'vuex';
 
 export const getStore = (vue) => {
-  vue.use(Vuex);
+  const state = {
+    filterChecked: false,
+    search: '',
+    todolist: [
+      {
+        index: 0,
+        item: 'Learn HTML',
+        checked: false,
+      },
+      {
+        index: 1,
+        item: 'Learn CSS',
+        checked: false,
+      },
+      {
+        index: 2,
+        item: 'Learn JavaSCript',
+        checked: false,
+      },
+    ],
+  };
 
+  vue.use(Vuex);
   return new Vuex.Store({
-    state: { },
+    state,
   });
 };
 

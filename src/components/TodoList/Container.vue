@@ -8,7 +8,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import './style.scss';
 
-export default {};
+export default {
+  computed: {
+    ...mapState([
+      'todolist',
+    ]),
+  },
+};
 </script>
