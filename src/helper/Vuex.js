@@ -8,7 +8,7 @@ export const getStore = (vue) => {
       {
         index: 0,
         item: 'Learn HTML',
-        checked: false,
+        checked: true,
       },
       {
         index: 1,
