@@ -1,20 +1,14 @@
 <template>
   <el-container>
-    <el-header/>
+    <el-header>
+      <span class="title">Todo List</span>
+    </el-header>
     <el-main/>
   </el-container>
 </template>
 
 <script>
+import './style.scss';
+
 export default {};
 </script>
-
-<style scoped>
-.el-header {
-  background-color: #46A0FC;
-  color: #333;
-  position: fixed;
-  width: 100%;
-  height: 50px;
-}
-</style>
