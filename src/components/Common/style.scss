@@ -6,3 +6,24 @@ $main-color: #46a0fc;
   font-family: $font-stack;
   margin: 0;
 }
+
+.el-header {
+  background-color: $main-color;
+  height: 50px;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+
+  $title-color: #fff;
+
+  .title {
+    color: $title-color;
+    font-size: 25px;
+    margin-left: 5px;
+  }
+}
+
+.el-main {
+  margin-left: -6px;
+  margin-top: 40px;
+}

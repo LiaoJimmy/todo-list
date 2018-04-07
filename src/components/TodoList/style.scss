@@ -1,27 +1,3 @@
-@import '../Common/style';
-
-$header-height: 50px;
-$title-color: #fff;
-$title-font-size: 25px;
-
 .el-checkbox {
   margin-left: 35px;
-}
-
-.el-header {
-  background-color: $main-color;
-  height: $header-height;
-  padding: 15px;
-  position: fixed;
-  width: 100%;
-
-  .title {
-    color: $title-color;
-    font-size: $title-font-size;
-    margin-left: 5px;
-  }
-}
-
-.el-main {
-  margin-top: 25px;
 }
