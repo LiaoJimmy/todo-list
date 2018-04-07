@@ -1,3 +1,35 @@
+@import '../Common/style';
+
 .el-checkbox {
   margin-left: 35px;
+}
+
+.el-header {
+  background-color: $main-color;
+  height: 50px;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+
+  $title-color: #fff;
+  $title-font-size: 24px;
+
+  .title {
+    color: $title-color;
+    font-size: $title-font-size;
+    margin-left: 5px;
+  }
+
+  .el-icon-plus {
+    color: $title-color;
+    cursor: pointer;
+    float: right;
+    font-size: $title-font-size;
+    font-weight: bold;
+  }
+}
+
+.el-main {
+  margin-left: -6px;
+  margin-top: 40px;
 }

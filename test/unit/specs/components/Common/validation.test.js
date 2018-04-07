@@ -1,4 +1,4 @@
-import { addPromptItem } from '../../../../../src/components/Common/validatation';
+import { addPromptItem } from '../../../../../src/components/TodoList/validatation';
 
 describe('addPromptItem', () => {
   it('should validate todo item text length more than 20 characters', () => {
