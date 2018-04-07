@@ -14,11 +14,23 @@
 </template>
 
 <script>
+import { addPromptItem } from './validatation';
 import './style.scss';
 
 export default {
   methods: {
-    addOnClick() { },
+    addOnClick() {
+      this.$prompt('New todo item', 'Add', {
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        inputValidator: addPromptItem,
+      }).then(({ value }) => {
+        this.$message({
+          type: 'success',
+          message: `Add new item: ${value}`,
+        });
+      }).catch(() => {});
+    },
   },
 };
 </script>

@@ -12,7 +12,6 @@ const store = getStore(Vue);
 
 Vue.config.productionTip = false;
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

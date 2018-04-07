@@ -4,6 +4,8 @@ import {
   Checkbox,
   Header,
   Main,
+  Message,
+  MessageBox,
   Table,
   TableColumn,
 } from 'element-ui';
@@ -16,6 +18,10 @@ export const importer = (vue) => {
   vue.use(Main);
   vue.use(Table);
   vue.use(TableColumn);
+
+  const Vue = vue;
+  Vue.prototype.$message = Message;
+  Vue.prototype.$prompt = MessageBox.prompt;
 };
 
 export default {
