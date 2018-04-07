@@ -8,12 +8,16 @@
       />
     </el-header>
     <el-main>
-      <el-table :data="todolist">
+      <el-table
+        :data="todolist"
+        @current-change="tableOnCurrentChange"
+      >
         <el-table-column
           width="125">
           <template slot-scope="scope">
             <el-checkbox
-              v-model="todolist[scope.$index].checked"
+              :checked="scope.row.checked"
+              @change="checkedOnChange(scope.$index)"
             />
           </template>
         </el-table-column>
@@ -30,7 +34,11 @@ import {
   mapMutations,
   mapState,
 } from 'vuex';
-import { ADD_TODO_ITEM } from './mutation-types';
+
+import {
+  ADD_TODO_ITEM,
+  CHECK_TODO_ITEM,
+} from './mutation-types';
 import { addPromptItem } from './validatation';
 import './style.scss';
 
@@ -43,6 +51,7 @@ export default {
   methods: {
     ...mapMutations([
       ADD_TODO_ITEM,
+      CHECK_TODO_ITEM,
     ]),
     addOnClick() {
       this.$prompt(
@@ -59,6 +68,12 @@ export default {
           message: `Add new item: ${value}`,
         });
       }).catch(() => {});
+    },
+    checkedOnChange(index) {
+      this[CHECK_TODO_ITEM]({ index });
+    },
+    tableOnCurrentChange() {
+
     },
   },
 };

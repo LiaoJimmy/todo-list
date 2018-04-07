@@ -1,4 +1,7 @@
-import { ADD_TODO_ITEM } from './mutation-types';
+import {
+  ADD_TODO_ITEM,
+  CHECK_TODO_ITEM,
+} from './mutation-types';
 
 const mutations = {
   [ADD_TODO_ITEM](state, { item }) {
@@ -7,6 +10,9 @@ const mutations = {
       item,
       checked: false,
     });
+  },
+  [CHECK_TODO_ITEM](state, { index }) {
+    state.todolist[index].checked = !state.todolist[index].checked;
   },
 };
 
