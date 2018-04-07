@@ -20,11 +20,14 @@ import './style.scss';
 export default {
   methods: {
     addOnClick() {
-      this.$prompt('New todo item', 'Add', {
-        confirmButtonText: 'OK',
-        cancelButtonText: 'Cancel',
-        inputValidator: addPromptItem,
-      }).then(({ value }) => {
+      this.$prompt(
+        'New todo item', 'Add',
+        {
+          cancelButtonText: 'Cancel',
+          confirmButtonText: 'OK',
+          inputValidator: addPromptItem,
+        },
+      ).then(({ value }) => {
         this.$message({
           type: 'success',
           message: `Add new item: ${value}`,
