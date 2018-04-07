@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import mutations from '../components/TodoList/mutations';
 
 export const getStore = (vue) => {
   const state = {
@@ -17,7 +18,7 @@ export const getStore = (vue) => {
       },
       {
         index: 2,
-        item: 'Learn JavaSCript',
+        item: 'Learn JavaScript',
         checked: false,
       },
     ],
@@ -25,6 +26,7 @@ export const getStore = (vue) => {
 
   vue.use(Vuex);
   return new Vuex.Store({
+    mutations,
     state,
   });
 };

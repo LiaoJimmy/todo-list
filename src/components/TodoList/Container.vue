@@ -26,7 +26,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import {
+  mapMutations,
+  mapState,
+} from 'vuex';
+import { ADD_TODO_ITEM } from './mutation-types';
 import { addPromptItem } from './validatation';
 import './style.scss';
 
@@ -37,6 +41,9 @@ export default {
     ]),
   },
   methods: {
+    ...mapMutations([
+      ADD_TODO_ITEM,
+    ]),
     addOnClick() {
       this.$prompt(
         'New todo item', 'Add',
@@ -46,6 +53,7 @@ export default {
           inputValidator: addPromptItem,
         },
       ).then(({ value }) => {
+        this[ADD_TODO_ITEM]({ item: value });
         this.$message({
           type: 'success',
           message: `Add new item: ${value}`,
