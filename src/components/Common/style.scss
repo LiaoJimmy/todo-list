@@ -15,11 +15,19 @@ $main-color: #46a0fc;
   width: 100%;
 
   $title-color: #fff;
+  $title-font-size: 24px;
 
   .title {
     color: $title-color;
-    font-size: 25px;
+    font-size: $title-font-size;
     margin-left: 5px;
+  }
+
+  .el-icon-plus {
+    color: $title-color;
+    float: right;
+    font-size: $title-font-size;
+    font-weight: bold;
   }
 }
 

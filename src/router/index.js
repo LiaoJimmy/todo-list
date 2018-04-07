@@ -9,12 +9,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Common',
       component: Common,
       children: [
         {
           path: '/',
-          name: 'TodoList',
           component: TodoList,
         },
       ],

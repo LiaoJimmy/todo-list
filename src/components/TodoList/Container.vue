@@ -4,10 +4,13 @@
       width="125">
       <template slot-scope="scope">
         <el-checkbox
-          v-model="todolist[scope.$index].checked"/>
+          v-model="todolist[scope.$index].checked"
+        />
       </template>
     </el-table-column>
-    <el-table-column prop="item"/>
+    <el-table-column
+      prop="item"
+    />
   </el-table>
 </template>
 

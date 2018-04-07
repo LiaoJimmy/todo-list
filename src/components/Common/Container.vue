@@ -2,6 +2,10 @@
   <el-container>
     <el-header>
       <span class="title">Todo List</span>
+      <i
+        class="el-icon-plus"
+        @click="addOnClick"
+      />
     </el-header>
     <el-main>
       <router-view/>
@@ -12,5 +16,9 @@
 <script>
 import './style.scss';
 
-export default {};
+export default {
+  methods: {
+    addOnClick() { },
+  },
+};
 </script>
