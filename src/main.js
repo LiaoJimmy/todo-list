@@ -3,8 +3,8 @@
 import Vue from 'vue';
 
 import App from './App';
-import { getStore } from './helper/Vuex';
-import { importer } from './helper/ElementUI';
+import { getStore } from './helper/vuex';
+import { importer } from './helper/element-ui';
 import router from './router';
 
 importer(Vue);
