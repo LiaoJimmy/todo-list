@@ -2,6 +2,7 @@ import mutations from '../../../../../src/components/TodoList/mutations';
 import {
   ADD_TODO_ITEM,
   CHECK_TODO_ITEM,
+  EDIT_TODO_ITEM,
 } from '../../../../../src/components/TodoList/mutation-types';
 
 describe('mutations', () => {
@@ -102,6 +103,34 @@ describe('mutations', () => {
             index: 0,
             item: 'Learn Node.js',
             checked: false,
+          },
+        ],
+      });
+    });
+  });
+
+  describe('EDIT_TODO_ITEM', () => {
+    it('should edit item by index', () => {
+      const item = 'Learn SASS';
+      const index = 0;
+      const state = {
+        todolist: [
+          {
+            index: 0,
+            item: 'Learn Node.js',
+            checked: true,
+          },
+        ],
+      };
+
+      mutations[EDIT_TODO_ITEM](state, { index, item });
+
+      expect(state).toEqual({
+        todolist: [
+          {
+            index: 0,
+            item: 'Learn SASS',
+            checked: true,
           },
         ],
       });

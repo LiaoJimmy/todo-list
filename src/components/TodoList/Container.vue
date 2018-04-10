@@ -38,8 +38,9 @@ import {
 import {
   ADD_TODO_ITEM,
   CHECK_TODO_ITEM,
+  EDIT_TODO_ITEM,
 } from './mutation-types';
-import { addPromptItem } from './validatation';
+import { itemValidator } from './validatation';
 import './style.scss';
 
 export default {
@@ -52,6 +53,7 @@ export default {
     ...mapMutations([
       ADD_TODO_ITEM,
       CHECK_TODO_ITEM,
+      EDIT_TODO_ITEM,
     ]),
     addOnClick() {
       this.$prompt(
@@ -59,7 +61,7 @@ export default {
         {
           cancelButtonText: 'Cancel',
           confirmButtonText: 'OK',
-          inputValidator: addPromptItem,
+          inputValidator: itemValidator,
         },
       ).then(({ value }) => {
         this[ADD_TODO_ITEM]({ item: value });
@@ -72,8 +74,22 @@ export default {
     checkedOnChange(index) {
       this[CHECK_TODO_ITEM]({ index });
     },
-    tableOnCurrentChange() {
-
+    tableOnCurrentChange({ index, item }) {
+      this.$prompt(
+        'Edit todo item', 'Edit',
+        {
+          cancelButtonText: 'Cancel',
+          confirmButtonText: 'OK',
+          inputValidator: itemValidator,
+          inputValue: item,
+        },
+      ).then(({ value }) => {
+        this[EDIT_TODO_ITEM]({ index, item: value });
+        this.$message({
+          type: 'success',
+          message: `Edit new item: ${value}`,
+        });
+      }).catch(() => {});
     },
   },
 };
