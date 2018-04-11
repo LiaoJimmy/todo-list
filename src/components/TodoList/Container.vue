@@ -10,7 +10,6 @@
     <el-main>
       <el-table
         :data="todolist"
-        @current-change="tableOnCurrentChange"
       >
         <el-table-column
           width="125">
@@ -24,6 +23,22 @@
         <el-table-column
           prop="item"
         />
+        <el-table-column
+          width="100">
+          <template slot-scope="scope">
+            <a @click="editOnClick(scope)">
+              <i class="el-icon-edit"/>
+            </a>
+          </template>
+        </el-table-column>
+        <el-table-column
+          width="100">
+          <template slot-scope="scope">
+            <a @click="deleteOnClick(scope)">
+              <i class="el-icon-delete"/>
+            </a>
+          </template>
+        </el-table-column>
       </el-table>
     </el-main>
   </el-container>
@@ -39,6 +54,7 @@ import {
   ADD_TODO_ITEM,
   CHECK_TODO_ITEM,
   EDIT_TODO_ITEM,
+  DELETE_TODO_ITEM,
 } from './mutation-types';
 import { itemValidator } from './validatation';
 import './style.scss';
@@ -54,6 +70,7 @@ export default {
       ADD_TODO_ITEM,
       CHECK_TODO_ITEM,
       EDIT_TODO_ITEM,
+      DELETE_TODO_ITEM,
     ]),
     addOnClick() {
       this.$prompt(
@@ -74,7 +91,23 @@ export default {
     checkedOnChange(index) {
       this[CHECK_TODO_ITEM]({ index });
     },
-    tableOnCurrentChange({ index, item }) {
+    deleteOnClick({ row: { index, item } }) {
+      this.$confirm(
+        `Are you sure to delete this todo item: ${item}`, 'Delete',
+        {
+          cancelButtonText: 'Cancel',
+          confirmButtonText: 'OK',
+          type: 'warning',
+        },
+      ).then(() => {
+        this[DELETE_TODO_ITEM]({ index });
+        this.$message({
+          type: 'success',
+          message: `Delete item: ${item}`,
+        });
+      }).catch(() => {});
+    },
+    editOnClick({ row: { index, item } }) {
       this.$prompt(
         'Edit todo item', 'Edit',
         {

@@ -2,6 +2,7 @@ import {
   ADD_TODO_ITEM,
   CHECK_TODO_ITEM,
   EDIT_TODO_ITEM,
+  DELETE_TODO_ITEM,
 } from './mutation-types';
 
 const mutations = {
@@ -17,6 +18,9 @@ const mutations = {
   },
   [EDIT_TODO_ITEM](state, { index, item }) {
     state.todolist[index].item = item;
+  },
+  [DELETE_TODO_ITEM](state, { index }) {
+    state.todolist = state.todolist.filter(item => item.index !== index);
   },
 };
 

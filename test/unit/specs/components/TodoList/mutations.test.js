@@ -3,6 +3,7 @@ import {
   ADD_TODO_ITEM,
   CHECK_TODO_ITEM,
   EDIT_TODO_ITEM,
+  DELETE_TODO_ITEM,
 } from '../../../../../src/components/TodoList/mutation-types';
 
 describe('mutations', () => {
@@ -130,6 +131,38 @@ describe('mutations', () => {
           {
             index: 0,
             item: 'Learn SASS',
+            checked: true,
+          },
+        ],
+      });
+    });
+  });
+
+  describe('DELETE_TODO_ITEM', () => {
+    it('should delete item by index', () => {
+      const index = 1;
+      const state = {
+        todolist: [
+          {
+            index: 0,
+            item: 'Learn Node.js',
+            checked: true,
+          },
+          {
+            index: 1,
+            item: 'Learn Vue.js',
+            checked: false,
+          },
+        ],
+      };
+
+      mutations[DELETE_TODO_ITEM](state, { index });
+
+      expect(state).toEqual({
+        todolist: [
+          {
+            index: 0,
+            item: 'Learn Node.js',
             checked: true,
           },
         ],
