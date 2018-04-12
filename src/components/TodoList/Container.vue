@@ -15,8 +15,7 @@
           width="125">
           <template slot-scope="scope">
             <el-checkbox
-              :checked="scope.row.checked"
-              @change="checkedOnChange(scope.$index)"
+              v-model="scope.row.checked"
             />
           </template>
         </el-table-column>
@@ -52,7 +51,6 @@ import {
 
 import {
   ADD_ITEM,
-  CHECK_ITEM,
   EDIT_ITEM,
   DELETE_ITEM,
 } from './mutation-types';
@@ -68,7 +66,6 @@ export default {
   methods: {
     ...mapMutations([
       ADD_ITEM,
-      CHECK_ITEM,
       EDIT_ITEM,
       DELETE_ITEM,
     ]),
@@ -87,9 +84,6 @@ export default {
           message: `Add new item: ${value}`,
         });
       }).catch(() => {});
-    },
-    checkedOnChange(index) {
-      this[CHECK_ITEM]({ index });
     },
     deleteOnClick({ row: { index, item } }) {
       this.$confirm(

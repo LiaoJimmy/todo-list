@@ -1,7 +1,6 @@
 import mutations from '../../../../../src/components/TodoList/mutations';
 import {
   ADD_ITEM,
-  CHECK_ITEM,
   EDIT_ITEM,
   DELETE_ITEM,
 } from '../../../../../src/components/TodoList/mutation-types';
@@ -59,58 +58,6 @@ describe('mutations', () => {
           {
             index: 1,
             item: 'Learn Vue.js',
-            checked: false,
-          },
-        ],
-      });
-    });
-  });
-
-  describe('CHECK_ITEM', () => {
-    it('Should update checked todo item', () => {
-      const index = 0;
-      const state = {
-        todolist: [
-          {
-            index: 0,
-            item: 'Learn Node.js',
-            checked: false,
-          },
-        ],
-      };
-
-      mutations[CHECK_ITEM](state, { index });
-
-      expect(state).toEqual({
-        todolist: [
-          {
-            index: 0,
-            item: 'Learn Node.js',
-            checked: true,
-          },
-        ],
-      });
-    });
-
-    it('Should update un-checked todo item', () => {
-      const index = 0;
-      const state = {
-        todolist: [
-          {
-            index: 0,
-            item: 'Learn Node.js',
-            checked: true,
-          },
-        ],
-      };
-
-      mutations[CHECK_ITEM](state, { index });
-
-      expect(state).toEqual({
-        todolist: [
-          {
-            index: 0,
-            item: 'Learn Node.js',
             checked: false,
           },
         ],
