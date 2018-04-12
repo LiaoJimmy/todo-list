@@ -1,11 +1,11 @@
-export const ADD_TODO_ITEM = 'ADD_TODO_ITEM';
-export const CHECK_TODO_ITEM = 'CHECK_TODO_ITEM';
-export const EDIT_TODO_ITEM = 'EDIT_TODO_ITEM';
-export const DELETE_TODO_ITEM = 'DELETE_TODO_ITEM';
+export const ADD_ITEM = 'ADD_ITEM';
+export const CHECK_ITEM = 'CHECK_ITEM';
+export const EDIT_ITEM = 'EDIT_ITEM';
+export const DELETE_ITEM = 'DELETE_ITEM';
 
 export default {
-  ADD_TODO_ITEM,
-  CHECK_TODO_ITEM,
-  EDIT_TODO_ITEM,
-  DELETE_TODO_ITEM,
+  ADD_ITEM,
+  CHECK_ITEM,
+  EDIT_ITEM,
+  DELETE_ITEM,
 };

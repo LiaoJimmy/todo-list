@@ -1,13 +1,13 @@
 import mutations from '../../../../../src/components/TodoList/mutations';
 import {
-  ADD_TODO_ITEM,
-  CHECK_TODO_ITEM,
-  EDIT_TODO_ITEM,
-  DELETE_TODO_ITEM,
+  ADD_ITEM,
+  CHECK_ITEM,
+  EDIT_ITEM,
+  DELETE_ITEM,
 } from '../../../../../src/components/TodoList/mutation-types';
 
 describe('mutations', () => {
-  describe('ADD_TODO_ITEM', () => {
+  describe('ADD_ITEM', () => {
     it('Add one item', () => {
       const state = {
         todolist: [],
@@ -16,7 +16,7 @@ describe('mutations', () => {
         item: 'Learn Node.js',
       };
 
-      mutations[ADD_TODO_ITEM](state, payload);
+      mutations[ADD_ITEM](state, payload);
 
       expect(state.todolist).toEqual([
         {
@@ -41,7 +41,7 @@ describe('mutations', () => {
         item: 'Learn Vue.js',
       };
 
-      mutations[ADD_TODO_ITEM](state, payload);
+      mutations[ADD_ITEM](state, payload);
 
       expect(state.todolist).toEqual([
         {
@@ -58,7 +58,7 @@ describe('mutations', () => {
     });
   });
 
-  describe('CHECK_TODO_ITEM', () => {
+  describe('CHECK_ITEM', () => {
     it('Should update checked todo item', () => {
       const index = 0;
       const state = {
@@ -71,7 +71,7 @@ describe('mutations', () => {
         ],
       };
 
-      mutations[CHECK_TODO_ITEM](state, { index });
+      mutations[CHECK_ITEM](state, { index });
 
       expect(state).toEqual({
         todolist: [
@@ -96,7 +96,7 @@ describe('mutations', () => {
         ],
       };
 
-      mutations[CHECK_TODO_ITEM](state, { index });
+      mutations[CHECK_ITEM](state, { index });
 
       expect(state).toEqual({
         todolist: [
@@ -110,7 +110,7 @@ describe('mutations', () => {
     });
   });
 
-  describe('EDIT_TODO_ITEM', () => {
+  describe('EDIT_ITEM', () => {
     it('should edit item by index', () => {
       const item = 'Learn SASS';
       const index = 0;
@@ -124,7 +124,7 @@ describe('mutations', () => {
         ],
       };
 
-      mutations[EDIT_TODO_ITEM](state, { index, item });
+      mutations[EDIT_ITEM](state, { index, item });
 
       expect(state).toEqual({
         todolist: [
@@ -138,7 +138,7 @@ describe('mutations', () => {
     });
   });
 
-  describe('DELETE_TODO_ITEM', () => {
+  describe('DELETE_ITEM', () => {
     it('should delete item by index', () => {
       const index = 1;
       const state = {
@@ -156,7 +156,7 @@ describe('mutations', () => {
         ],
       };
 
-      mutations[DELETE_TODO_ITEM](state, { index });
+      mutations[DELETE_ITEM](state, { index });
 
       expect(state).toEqual({
         todolist: [

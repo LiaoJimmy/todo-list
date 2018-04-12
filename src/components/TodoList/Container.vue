@@ -51,10 +51,10 @@ import {
 } from 'vuex';
 
 import {
-  ADD_TODO_ITEM,
-  CHECK_TODO_ITEM,
-  EDIT_TODO_ITEM,
-  DELETE_TODO_ITEM,
+  ADD_ITEM,
+  CHECK_ITEM,
+  EDIT_ITEM,
+  DELETE_ITEM,
 } from './mutation-types';
 import { itemValidator } from './validatation';
 import './style.scss';
@@ -67,10 +67,10 @@ export default {
   },
   methods: {
     ...mapMutations([
-      ADD_TODO_ITEM,
-      CHECK_TODO_ITEM,
-      EDIT_TODO_ITEM,
-      DELETE_TODO_ITEM,
+      ADD_ITEM,
+      CHECK_ITEM,
+      EDIT_ITEM,
+      DELETE_ITEM,
     ]),
     addOnClick() {
       this.$prompt(
@@ -81,7 +81,7 @@ export default {
           inputValidator: itemValidator,
         },
       ).then(({ value }) => {
-        this[ADD_TODO_ITEM]({ item: value });
+        this[ADD_ITEM]({ item: value });
         this.$message({
           type: 'success',
           message: `Add new item: ${value}`,
@@ -89,7 +89,7 @@ export default {
       }).catch(() => {});
     },
     checkedOnChange(index) {
-      this[CHECK_TODO_ITEM]({ index });
+      this[CHECK_ITEM]({ index });
     },
     deleteOnClick({ row: { index, item } }) {
       this.$confirm(
@@ -100,7 +100,7 @@ export default {
           type: 'warning',
         },
       ).then(() => {
-        this[DELETE_TODO_ITEM]({ index });
+        this[DELETE_ITEM]({ index });
         this.$message({
           type: 'success',
           message: `Delete item: ${item}`,
@@ -117,7 +117,7 @@ export default {
           inputValue: item,
         },
       ).then(({ value }) => {
-        this[EDIT_TODO_ITEM]({ index, item: value });
+        this[EDIT_ITEM]({ index, item: value });
         this.$message({
           type: 'success',
           message: `Edit new item: ${value}`,
