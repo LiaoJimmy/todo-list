@@ -8,10 +8,11 @@ import {
 const mutations = {
   [ADD_ITEM](state, { item }) {
     state.todolist.push({
-      index: state.todolist.length,
+      index: state.count,
       item,
       checked: false,
     });
+    state.count += 1;
   },
   [CHECK_ITEM](state, { index }) {
     state.todolist[index].checked = !state.todolist[index].checked;

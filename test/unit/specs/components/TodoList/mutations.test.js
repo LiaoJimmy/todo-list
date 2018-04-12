@@ -10,6 +10,7 @@ describe('mutations', () => {
   describe('ADD_ITEM', () => {
     it('Add one item', () => {
       const state = {
+        count: 0,
         todolist: [],
       };
       const payload = {
@@ -18,17 +19,21 @@ describe('mutations', () => {
 
       mutations[ADD_ITEM](state, payload);
 
-      expect(state.todolist).toEqual([
-        {
-          index: 0,
-          item: 'Learn Node.js',
-          checked: false,
-        },
-      ]);
+      expect(state).toEqual({
+        count: 1,
+        todolist: [
+          {
+            index: 0,
+            item: 'Learn Node.js',
+            checked: false,
+          },
+        ],
+      });
     });
 
     it('Add one more item, index should plus one', () => {
       const state = {
+        count: 1,
         todolist: [
           {
             index: 0,
@@ -43,18 +48,21 @@ describe('mutations', () => {
 
       mutations[ADD_ITEM](state, payload);
 
-      expect(state.todolist).toEqual([
-        {
-          index: 0,
-          item: 'Learn Node.js',
-          checked: false,
-        },
-        {
-          index: 1,
-          item: 'Learn Vue.js',
-          checked: false,
-        },
-      ]);
+      expect(state).toEqual({
+        count: 2,
+        todolist: [
+          {
+            index: 0,
+            item: 'Learn Node.js',
+            checked: false,
+          },
+          {
+            index: 1,
+            item: 'Learn Vue.js',
+            checked: false,
+          },
+        ],
+      });
     });
   });
 

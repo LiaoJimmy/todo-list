@@ -3,6 +3,7 @@ import mutations from '../components/TodoList/mutations';
 
 export const getStore = (vue) => {
   const state = {
+    count: 3,
     filterChecked: false,
     search: '',
     todolist: [
