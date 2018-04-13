@@ -1,4 +1,6 @@
 import Vuex from 'vuex';
+
+import getters from '../components/TodoList/getters';
 import mutations from '../components/TodoList/mutations';
 
 export const getStore = (vue) => {
@@ -27,6 +29,7 @@ export const getStore = (vue) => {
 
   vue.use(Vuex);
   return new Vuex.Store({
+    getters,
     mutations,
     state,
   });

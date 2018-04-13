@@ -4,7 +4,7 @@ import {
   DELETE_ITEM,
 } from './mutation-types';
 
-const mutations = {
+export default {
   [ADD_ITEM](state, { item }) {
     state.todolist.push({
       index: state.count,
@@ -20,5 +20,3 @@ const mutations = {
     state.todolist = state.todolist.filter(item => item.index !== index);
   },
 };
-
-export default mutations;

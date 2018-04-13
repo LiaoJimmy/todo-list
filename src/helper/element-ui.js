@@ -3,6 +3,7 @@ import {
   Container,
   Checkbox,
   Header,
+  Input,
   Main,
   Message,
   MessageBox,
@@ -15,6 +16,7 @@ export const importer = (vue) => {
   vue.use(Container);
   vue.use(Checkbox);
   vue.use(Header);
+  vue.use(Input);
   vue.use(Main);
   vue.use(Table);
   vue.use(TableColumn);

@@ -8,8 +8,12 @@
       />
     </el-header>
     <el-main>
+      <el-input
+        placeholder="Search for items"
+        v-model="search"
+      />
       <el-table
-        :data="todolist"
+        :data="filterItems"
       >
         <el-table-column
           width="125">
@@ -45,6 +49,7 @@
 
 <script>
 import {
+  mapGetters,
   mapMutations,
   mapState,
 } from 'vuex';
@@ -59,9 +64,20 @@ import './style.scss';
 
 export default {
   computed: {
+    ...mapGetters([
+      'filterItems',
+    ]),
     ...mapState([
       'todolist',
     ]),
+    search: {
+      get() {
+        return this.$store.state.search;
+      },
+      set(value) {
+        this.$store.state.search = value;
+      },
+    },
   },
   methods: {
     ...mapMutations([
