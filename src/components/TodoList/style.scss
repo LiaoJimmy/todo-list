@@ -46,6 +46,12 @@
   margin-top: 40px;
 }
 
+// sass-lint:disable class-name-format
+.el-radio__label {
+  font-weight: normal;
+}
+// sass-lint:enable class_name_format
+
 .el-radio-group {
   margin-left: 10px;
   margin-top: 20px;
