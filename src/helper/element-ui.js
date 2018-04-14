@@ -7,6 +7,8 @@ import {
   Main,
   Message,
   MessageBox,
+  Radio,
+  RadioGroup,
   Table,
   TableColumn,
 } from 'element-ui';
@@ -18,6 +20,8 @@ export const importer = (vue) => {
   vue.use(Header);
   vue.use(Input);
   vue.use(Main);
+  vue.use(Radio);
+  vue.use(RadioGroup);
   vue.use(Table);
   vue.use(TableColumn);
 

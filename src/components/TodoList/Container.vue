@@ -12,6 +12,11 @@
         placeholder="Search for items"
         v-model="search"
       />
+      <el-radio-group v-model="filterChecked">
+        <el-radio :label="ALL">All</el-radio>
+        <el-radio :label="CHECKED">Checked</el-radio>
+        <el-radio :label="NOT_CHECKED">Not Checked</el-radio>
+      </el-radio-group>
       <el-table
         :data="filterItems"
       >
@@ -51,9 +56,12 @@
 import {
   mapGetters,
   mapMutations,
-  mapState,
 } from 'vuex';
-
+import {
+  ALL,
+  CHECKED,
+  NOT_CHECKED,
+} from './filter-checked';
 import {
   ADD_ITEM,
   EDIT_ITEM,
@@ -67,17 +75,17 @@ export default {
     ...mapGetters([
       'filterItems',
     ]),
-    ...mapState([
-      'search',
-    ]),
-    search: {
-      get() {
-        return this.$store.state.search;
-      },
-      set(value) {
-        this.$store.state.search = value;
-      },
+    filterChecked: {
+      get() { return this.$store.state.filterChecked; },
+      set(value) { this.$store.state.filterChecked = value; },
     },
+    search: {
+      get() { return this.$store.state.search; },
+      set(value) { this.$store.state.search = value; },
+    },
+    ALL: { get() { return ALL; } },
+    CHECKED: { get() { return CHECKED; } },
+    NOT_CHECKED: { get() { return NOT_CHECKED; } },
   },
   methods: {
     ...mapMutations([
