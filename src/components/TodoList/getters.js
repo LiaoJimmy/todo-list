@@ -3,6 +3,6 @@ export default {
     if (search === '') {
       return todolist;
     }
-    return todolist.filter(({ item }) => item.indexOf(search) >= 0);
+    return todolist.filter(({ item }) => item.includes(search));
   },
 };

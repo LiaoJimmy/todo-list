@@ -68,7 +68,7 @@ export default {
       'filterItems',
     ]),
     ...mapState([
-      'todolist',
+      'search',
     ]),
     search: {
       get() {
