@@ -1,6 +1,10 @@
 # todo-list
 
-> A Vue.js project
+> A Vue.js todo-list project
+
+## Screenshot
+![screenshot](./static/screenshot.png)
+
 
 ## Build Setup
 
