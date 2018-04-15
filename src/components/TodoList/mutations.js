@@ -3,6 +3,7 @@ import {
   EDIT_ITEM,
   DELETE_ITEM,
 } from './mutation-types';
+import { mutationGenerator } from '../../helper/vuex-form';
 
 export default {
   [ADD_ITEM](state, { item }) {
@@ -19,4 +20,8 @@ export default {
   [DELETE_ITEM](state, { index }) {
     state.todolist = state.todolist.filter(item => item.index !== index);
   },
+  ...mutationGenerator([
+    'search',
+    'filterChecked',
+  ]),
 };

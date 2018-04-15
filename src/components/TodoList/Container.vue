@@ -67,6 +67,10 @@ import {
   EDIT_ITEM,
   DELETE_ITEM,
 } from './mutation-types';
+import {
+  computedGenerator,
+  methodsGenerator,
+} from '../../helper/vuex-form';
 import { itemValidator } from './validatation';
 import './style.scss';
 
@@ -75,20 +79,20 @@ export default {
     ...mapGetters([
       'filterItems',
     ]),
-    filterChecked: {
-      get() { return this.$store.state.filterChecked; },
-      set(value) { this.$store.state.filterChecked = value; },
-    },
-    search: {
-      get() { return this.$store.state.search; },
-      set(value) { this.$store.state.search = value; },
-    },
+    ...computedGenerator([
+      'filterChecked',
+      'search',
+    ]),
     ALL: { get() { return ALL; } },
     CHECKED: { get() { return CHECKED; } },
     NOT_CHECKED: { get() { return NOT_CHECKED; } },
   },
   methods: {
     ...mapMutations([
+      ...methodsGenerator([
+        'filterChecked',
+        'search',
+      ]),
       ADD_ITEM,
       EDIT_ITEM,
       DELETE_ITEM,
