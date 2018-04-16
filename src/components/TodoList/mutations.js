@@ -3,7 +3,7 @@ import {
   EDIT_ITEM,
   DELETE_ITEM,
 } from './mutation-types';
-import { mutationGenerator } from '../../helper/vuex-form';
+import { mutationGenerator } from '../../helper/vuex-model';
 
 export default {
   [ADD_ITEM](state, { item }) {

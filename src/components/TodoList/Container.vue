@@ -70,7 +70,7 @@ import {
 import {
   computedGenerator,
   methodsGenerator,
-} from '../../helper/vuex-form';
+} from '../../helper/vuex-model';
 import { itemValidator } from './validatation';
 import './style.scss';
 
