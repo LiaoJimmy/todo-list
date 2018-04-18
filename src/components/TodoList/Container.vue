@@ -8,39 +8,52 @@
       />
     </el-header>
     <el-main>
-      <el-input
-        placeholder="Search for items"
-        v-model="search"
-      />
-      <el-radio-group v-model="filterChecked">
-        <el-radio :label="ALL">All</el-radio>
-        <el-radio :label="CHECKED">Checked</el-radio>
-        <el-radio :label="NOT_CHECKED">Not Checked</el-radio>
-      </el-radio-group>
+      <el-row>
+        <el-col :sm="12">
+          <el-input
+            placeholder="Search for items"
+            v-model="search"
+          />
+        </el-col>
+        <el-col :sm="12">
+          <el-radio-group v-model="filterChecked">
+            <el-col
+              :xs="8"
+              :sm="4">
+              <el-radio :label="ALL">All</el-radio>
+            </el-col>
+            <el-col
+              :xs="8"
+              :sm="5">
+              <el-radio :label="CHECKED">Checked</el-radio>
+            </el-col>
+            <el-col
+              :xs="8"
+              :sm="4">
+              <el-radio :label="NOT_CHECKED">Not Checked</el-radio>
+            </el-col>
+          </el-radio-group>
+        </el-col>
+      </el-row>
       <el-table
         :data="filterItems"
       >
-        <el-table-column
-          width="125">
+        <el-table-column width="125">
           <template slot-scope="scope">
             <el-checkbox
               v-model="scope.row.checked"
             />
           </template>
         </el-table-column>
-        <el-table-column
-          prop="item"
-        />
-        <el-table-column
-          width="100">
+        <el-table-column prop="item"/>
+        <el-table-column :width="100 * width / 1280">
           <template slot-scope="scope">
             <a @click="editOnClick(scope)">
               <i class="el-icon-edit"/>
             </a>
           </template>
         </el-table-column>
-        <el-table-column
-          width="100">
+        <el-table-column :width="100 * width / 1280" >
           <template slot-scope="scope">
             <a @click="deleteOnClick(scope)">
               <i class="el-icon-delete"/>
@@ -86,6 +99,9 @@ export default {
     ALL: { get() { return ALL; } },
     CHECKED: { get() { return CHECKED; } },
     NOT_CHECKED: { get() { return NOT_CHECKED; } },
+    width() {
+      return document.body.clientWidth;
+    },
   },
   methods: {
     ...mapMutations([

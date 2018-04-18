@@ -1,7 +1,8 @@
 import {
   Button,
-  Container,
   Checkbox,
+  Container,
+  Col,
   Header,
   Input,
   Main,
@@ -9,6 +10,7 @@ import {
   MessageBox,
   Radio,
   RadioGroup,
+  Row,
   Table,
   TableColumn,
 } from 'element-ui';
@@ -19,13 +21,15 @@ locale.use(en);
 
 export const importer = (vue) => {
   vue.use(Button);
-  vue.use(Container);
   vue.use(Checkbox);
+  vue.use(Col);
+  vue.use(Container);
   vue.use(Header);
   vue.use(Input);
   vue.use(Main);
   vue.use(Radio);
   vue.use(RadioGroup);
+  vue.use(Row);
   vue.use(Table);
   vue.use(TableColumn);
 
