@@ -3,7 +3,7 @@ import {
   mutationGenerator,
   computedGenerator,
   methodsGenerator,
-} from '../../../../src/helper/vuex-model';
+} from '../../../../src/helper/vuex/vuex-model';
 
 describe('vuex-model', () => {
   describe('toUpperCaseUnderline()', () => {

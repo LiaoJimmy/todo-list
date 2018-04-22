@@ -83,7 +83,7 @@ import {
 import {
   computedGenerator,
   methodsGenerator,
-} from '../../helper/vuex-model';
+} from '../../helper/vuex//vuex-model';
 import { itemValidator } from './validatation';
 import './style.scss';
 

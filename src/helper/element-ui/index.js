@@ -19,7 +19,7 @@ import locale from 'element-ui/lib/locale';
 
 locale.use(en);
 
-export const importer = (vue) => {
+const init = (vue) => {
   vue.use(Button);
   vue.use(Checkbox);
   vue.use(Col);
@@ -40,5 +40,5 @@ export const importer = (vue) => {
 };
 
 export default {
-  importer,
+  init,
 };

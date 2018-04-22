@@ -3,12 +3,12 @@
 import Vue from 'vue';
 
 import App from './App';
-import { getStore } from './helper/vuex';
-import { importer } from './helper/element-ui';
+import ElementUI from './helper/element-ui';
+import Vuex from './helper/vuex';
 import router from './router';
 
-importer(Vue);
-const store = getStore(Vue);
+ElementUI.init(Vue);
+const store = Vuex.initStore(Vue);
 
 Vue.config.productionTip = false;
 
