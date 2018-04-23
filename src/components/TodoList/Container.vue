@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <span class="title">Todo List</span>
+      <span class="title">{{ $t('title') }}</span>
       <i
         class="el-icon-plus"
         @click="addOnClick"
@@ -11,7 +11,7 @@
       <el-row>
         <el-col :sm="12">
           <el-input
-            placeholder="Search for items"
+            :placeholder="$t('searchPlaceholder')"
             v-model="search"
           />
         </el-col>
@@ -20,17 +20,17 @@
             <el-col
               :xs="8"
               :sm="4">
-              <el-radio :label="ALL">All</el-radio>
+              <el-radio :label="ALL">{{ $t('all') }}</el-radio>
             </el-col>
             <el-col
               :xs="8"
               :sm="5">
-              <el-radio :label="CHECKED">Checked</el-radio>
+              <el-radio :label="CHECKED">{{ $t('checked') }}</el-radio>
             </el-col>
             <el-col
               :xs="8"
               :sm="4">
-              <el-radio :label="NOT_CHECKED">Not Checked</el-radio>
+              <el-radio :label="NOT_CHECKED">{{ $t('notChecked') }}</el-radio>
             </el-col>
           </el-radio-group>
         </el-col>
@@ -84,7 +84,7 @@ import {
   computedGenerator,
   methodsGenerator,
 } from '../../helper/vuex//vuex-model';
-import { itemValidator } from './validatation';
+import { tItemValidator } from './validatation';
 import './style.scss';
 
 export default {
@@ -115,50 +115,50 @@ export default {
     ]),
     addOnClick() {
       this.$prompt(
-        'New todo item', 'Add',
+        this.$t('addItemDescription'), this.$t('add'),
         {
-          cancelButtonText: 'Cancel',
-          confirmButtonText: 'OK',
-          inputValidator: itemValidator,
+          cancelButtonText: this.$t('cancel'),
+          confirmButtonText: this.$t('ok'),
+          inputValidator: tItemValidator(this.$t),
         },
       ).then(({ value }) => {
         this[ADD_ITEM]({ item: value });
         this.$message({
           type: 'success',
-          message: `Add new item: ${value}`,
+          message: this.$t('addItemSuccessfully', { item: value }),
         });
       }).catch(() => {});
     },
     deleteOnClick({ row: { index, item } }) {
       this.$confirm(
-        `Are you sure to delete this todo item: ${item}`, 'Delete',
+        this.$t('deleteItemDescription', { item }), this.$t('delete'),
         {
-          cancelButtonText: 'Cancel',
-          confirmButtonText: 'OK',
+          cancelButtonText: this.$t('cancel'),
+          confirmButtonText: this.$t('ok'),
           type: 'warning',
         },
       ).then(() => {
         this[DELETE_ITEM]({ index });
         this.$message({
           type: 'success',
-          message: `Delete item: ${item}`,
+          message: this.$t('deleteItemSuccessfully', { item }),
         });
       }).catch(() => {});
     },
     editOnClick({ row: { index, item } }) {
       this.$prompt(
-        'Edit todo item', 'Edit',
+        this.$t('editItemDescription'), this.$t('edit'),
         {
-          cancelButtonText: 'Cancel',
-          confirmButtonText: 'OK',
-          inputValidator: itemValidator,
+          cancelButtonText: this.$t('cancel'),
+          confirmButtonText: this.$t('ok'),
+          inputValidator: tItemValidator,
           inputValue: item,
         },
       ).then(({ value }) => {
         this[EDIT_ITEM]({ index, item: value });
         this.$message({
           type: 'success',
-          message: `Edit new item: ${value}`,
+          message: this.$t('editItemSuccessfully', { item: value }),
         });
       }).catch(() => {});
     },
