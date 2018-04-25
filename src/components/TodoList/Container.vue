@@ -2,10 +2,23 @@
   <el-container>
     <el-header>
       <span class="title">{{ $t('title') }}</span>
-      <i
-        class="el-icon-plus"
-        @click="addOnClick"
-      />
+      <div class="header-right">
+        <el-dropdown @command="changeLanguageOnCommand">
+          <span class="el-dropdown-link">
+            <span>{{ $t('changeLanguage') }}</span>
+            <i class="el-icon-arrow-down el-icon--right"/>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="en-US">{{ $t('english') }}</el-dropdown-item>
+            <el-dropdown-item command="zh-TW">{{ $t('traditionalChinese') }}</el-dropdown-item>
+            <el-dropdown-item command="zh-CN">{{ $t('simplifiedChinese') }}</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <i
+          class="el-icon-plus"
+          @click="addOnClick"
+        />
+      </div>
     </el-header>
     <el-main>
       <el-row>
@@ -84,6 +97,7 @@ import {
   computedGenerator,
   methodsGenerator,
 } from '../../helper/vuex//vuex-model';
+import { supportLanguage } from '../../helper/vue-i18n/messages';
 import { tItemValidator } from './validatation';
 import './style.scss';
 
@@ -129,6 +143,9 @@ export default {
         });
       }).catch(() => {});
     },
+    changeLanguageOnCommand(language) {
+      this.$router.push(language);
+    },
     deleteOnClick({ row: { index, item } }) {
       this.$confirm(
         this.$t('deleteItemDescription', { item }), this.$t('delete'),
@@ -161,6 +178,12 @@ export default {
           message: this.$t('editItemSuccessfully', { item: value }),
         });
       }).catch(() => {});
+    },
+  },
+  watch: {
+    $route({ name }) {
+      const locale = supportLanguage.find(language => language === name);
+      this.$i18n.locale = locale;
     },
   },
 };

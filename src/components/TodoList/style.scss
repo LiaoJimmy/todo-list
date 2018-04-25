@@ -4,6 +4,19 @@
   margin-left: 35px;
 }
 
+.el-dropdown {
+  margin-right: 6px;
+}
+
+.el-dropdown-link {
+  color: $white;
+  cursor: pointer;
+}
+
+.el-icon-arrow-down {
+  font-size: 12px;
+}
+
 .el-header {
   background-color: $main-color;
   height: 50px;
@@ -11,7 +24,7 @@
   position: fixed;
   width: 100%;
 
-  $title-color: #fff;
+  $title-color: $white;
   $title-font-size: 24px;
 
   .title {
@@ -23,7 +36,6 @@
   .el-icon-plus {
     color: $title-color;
     cursor: pointer;
-    float: right;
     font-size: $title-font-size;
     font-weight: bold;
   }
@@ -56,4 +68,8 @@
   margin-left: 25px;
   margin-top: 30px;
   width: 100%;
+}
+
+.header-right {
+  float: right;
 }

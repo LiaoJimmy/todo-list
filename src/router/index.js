@@ -8,8 +8,30 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'TodoList',
       component: TodoList,
+    },
+    {
+      path: '/en-US',
+      name: 'en-US',
+      component: TodoList,
+    },
+    {
+      path: '/zh-TW',
+      name: 'zh-TW',
+      component: TodoList,
+    },
+    {
+      path: '/zh-CN',
+      name: 'zh-CN',
+      component: TodoList,
+    },
+    {
+      path: '/*',
+      name: 'others',
+      component: TodoList,
+      redirect: {
+        name: 'en-US',
+      },
     },
   ],
 });

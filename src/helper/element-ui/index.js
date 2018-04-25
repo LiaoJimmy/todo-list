@@ -1,8 +1,11 @@
 import {
   Button,
   Checkbox,
-  Container,
   Col,
+  Container,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
   Header,
   Input,
   Main,
@@ -24,6 +27,9 @@ const init = (vue) => {
   vue.use(Checkbox);
   vue.use(Col);
   vue.use(Container);
+  vue.use(Dropdown);
+  vue.use(DropdownItem);
+  vue.use(DropdownMenu);
   vue.use(Header);
   vue.use(Input);
   vue.use(Main);
