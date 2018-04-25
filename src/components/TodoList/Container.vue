@@ -117,6 +117,9 @@ export default {
       return document.body.clientWidth;
     },
   },
+  created() {
+    this.$i18n.locale = this.$route.name;
+  },
   methods: {
     ...mapMutations([
       ...methodsGenerator([
