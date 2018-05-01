@@ -3,7 +3,8 @@
 > A Vue.js todo-list project
 
 ## Screenshot
-![screenshot](./static/screenshot.png)
+<img src="./static/screenshot.png" width="500">
+<!-- ![screenshot](./static/screenshot.png) -->
 
 
 ## Build Setup

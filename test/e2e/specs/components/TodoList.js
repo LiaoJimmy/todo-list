@@ -24,10 +24,7 @@ module.exports = {
       .click('.el-button--primary')
       .assert.containsText('.el-message__content', 'Add new item: Learn Node.js')
       .assert.containsText('tr:nth-child(4) > td.el-table_1_column_2 > div', 'Learn Node.js')
-      .assert.cssClassNotPresent(
-        'tr:nth-child(4) > td.el-table_1_column_1 > div > label > span',
-        'is-checked',
-      )
+      .assert.cssClassNotPresent('tr:nth-child(4) > td.el-table_1_column_1 > div > label > span', 'is-checked')
       .end();
   },
   'Search feature': (browser) => {
