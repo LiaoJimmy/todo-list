@@ -3,15 +3,27 @@
     <el-header>
       <span class="title">{{ $t('title') }}</span>
       <div class="header-right">
-        <el-dropdown @command="changeLanguageOnCommand">
+        <el-dropdown
+          @command="changeLanguageOnCommand"
+          data-qa="langauge-dropdown"
+        >
           <span class="el-dropdown-link">
             <span>{{ $t('changeLanguage') }}</span>
             <i class="el-icon-arrow-down el-icon--right"/>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="en-US">{{ $t('english') }}</el-dropdown-item>
-            <el-dropdown-item command="zh-TW">{{ $t('traditionalChinese') }}</el-dropdown-item>
-            <el-dropdown-item command="zh-CN">{{ $t('simplifiedChinese') }}</el-dropdown-item>
+            <el-dropdown-item
+              command="en-US"
+              data-qa="enus-dropdown-item"
+            >{{ $t('english') }}</el-dropdown-item>
+            <el-dropdown-item
+              command="zh-TW"
+              data-qa="zhtw-dropdown-item"
+            >{{ $t('traditionalChinese') }}</el-dropdown-item>
+            <el-dropdown-item
+              command="zh-CN"
+              data-qa="zhcn-dropdown-item"
+            >{{ $t('simplifiedChinese') }}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <i
@@ -33,17 +45,32 @@
             <el-col
               :xs="8"
               :sm="4">
-              <el-radio :label="ALL">{{ $t('all') }}</el-radio>
+              <el-radio
+                :label="ALL"
+                data-qa="filter-all-radio"
+              >
+                {{ $t('all') }}
+              </el-radio>
             </el-col>
             <el-col
               :xs="8"
               :sm="5">
-              <el-radio :label="CHECKED">{{ $t('checked') }}</el-radio>
+              <el-radio
+                :label="CHECKED"
+                data-qa="filter-checked-radio"
+              >
+                {{ $t('checked') }}
+              </el-radio>
             </el-col>
             <el-col
               :xs="8"
               :sm="4">
-              <el-radio :label="NOT_CHECKED">{{ $t('notChecked') }}</el-radio>
+              <el-radio
+                :label="NOT_CHECKED"
+                data-qa="filter-not-checked-radio"
+              >
+                {{ $t('notChecked') }}
+              </el-radio>
             </el-col>
           </el-radio-group>
         </el-col>
@@ -55,6 +82,7 @@
           <template slot-scope="scope">
             <el-checkbox
               v-model="scope.row.checked"
+              data-qa="item-checkbox"
             />
           </template>
         </el-table-column>
@@ -62,7 +90,10 @@
         <el-table-column :width="100 * width / 1280">
           <template slot-scope="scope">
             <a @click="editOnClick(scope)">
-              <i class="el-icon-edit"/>
+              <i
+                class="el-icon-edit"
+                data-qa="item-edit-icon"
+              />
             </a>
           </template>
         </el-table-column>

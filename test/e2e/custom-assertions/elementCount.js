@@ -21,7 +21,6 @@ const assertion = (selector, count) => {
   };
 };
 
-
 module.exports = {
   assertion,
 };
