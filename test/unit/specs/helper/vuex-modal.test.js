@@ -8,15 +8,19 @@ import {
 describe('vuex-model', () => {
   describe('toUpperCaseUnderline()', () => {
     it('should transform one word to upper case', () => {
-      const string = 'apple';
+      const text = 'apple';
 
-      expect(toUpperCaseUnderline(string)).toBe('APPLE');
+      expect(toUpperCaseUnderline(text)).toBe('APPLE');
     });
 
     it('should transform muti-word to upper case with underline', () => {
-      const string = 'countOfApple';
+      const text = 'countOfApple';
+      const text2 = 'endToEndTestVer2';
+      const text3 = 'ver2Player';
 
-      expect(toUpperCaseUnderline(string)).toBe('COUNT_OF_APPLE');
+      expect(toUpperCaseUnderline(text)).toBe('COUNT_OF_APPLE');
+      expect(toUpperCaseUnderline(text2)).toBe('END_TO_END_TEST_VER2');
+      expect(toUpperCaseUnderline(text3)).toBe('VER2_PLAYER');
     });
   });
 

@@ -2,6 +2,8 @@
 
 > A Vue.js todo-list project
 
+<img src="https://travis-ci.org/LiaoJimmy/todo-list.svg?branch=master">
+
 ## Screenshot
 <img src="./static/screenshot.png" width="500">
 <!-- ![screenshot](./static/screenshot.png) -->

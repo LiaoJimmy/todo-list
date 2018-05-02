@@ -1,9 +1,4 @@
-export const toUpperCaseUnderline = (string) => {
-  const [first = ''] = string.match(/([a-z0-9]+)/g);
-  const rest = string.match(/([A-Z][a-z0-9]*)/g) || [];
-
-  return rest.reduce((previous, current) => `${previous}_${current.toUpperCase()}`, first.toUpperCase());
-};
+export const toUpperCaseUnderline = text => text.match(/([A-Z]?[a-z0-9]+)/g).map(item => item.toUpperCase()).join('_');
 
 export const mutationGenerator = modalArray =>
   modalArray.reduce((previous, modal) => ({
