@@ -3,6 +3,6 @@ node_js:
   - "8.9.4"
 install: yarn
 script:
-  - npm run unit
   - npm run lint
-  - npm start
+  - npm run unit
+  - npm run build
