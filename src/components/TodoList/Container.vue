@@ -115,6 +115,10 @@ import {
   mapMutations,
 } from 'vuex';
 import {
+  computedGenerator,
+  methodsGenerator,
+} from 'vuex-model-helper';
+import {
   ALL,
   CHECKED,
   NOT_CHECKED,
@@ -124,10 +128,6 @@ import {
   EDIT_ITEM,
   DELETE_ITEM,
 } from './mutation-types';
-import {
-  computedGenerator,
-  methodsGenerator,
-} from '../../helper/vuex//vuex-model';
 import { supportLanguage } from '../../helper/vue-i18n/messages';
 import { tItemValidator } from './validatation';
 import './style.scss';
