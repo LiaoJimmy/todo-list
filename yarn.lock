@@ -8359,9 +8359,9 @@ vue@^2.5.2:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
-vuex-model-helper@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/vuex-model-helper/-/vuex-model-helper-0.0.3.tgz#fd686812b5f8a25e32f53a2ced51732a92b81971"
+vuex-model-helper@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vuex-model-helper/-/vuex-model-helper-0.0.4.tgz#6595c71b57ff9d3e82f3c3c01d4388e15b9f487f"
   dependencies:
     babel-cli "^6.26.0"
     babel-preset-stage-2 "^6.24.1"
